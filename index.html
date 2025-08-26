@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="个人网站：个人介绍、项目展示、联系方式" />
+    <meta name="color-scheme" content="light dark" />
+    <title>我的个人网站</title>
+    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">CW</a>
+        <nav class="site-nav" aria-label="主导航">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="打开菜单">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </button>
+          <ul id="nav-list" class="nav-list">
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#projects">项目</a></li>
+            <li><a href="#contact">联系</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">🌓</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <h1>你好，我是 Colin</h1>
+            <p class="subtitle">全栈开发者 / 产品实践者，专注打造可用、优雅、快速的数字产品。</p>
+            <div class="hero-cta">
+              <a class="btn primary" href="#projects">查看项目</a>
+              <a class="btn ghost" href="#contact">联系我</a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="avatar-circle">CW</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2 class="section-title">关于我</h2>
+          <p>
+            我拥有 X 年开发经验，擅长 Web 前后端与云端部署。熟悉 TypeScript/JavaScript、React、Node.js、以及常见的 CI/CD 与云平台（Vercel、Netlify、GitHub Pages）。
+          </p>
+          <ul class="chips">
+            <li>TypeScript</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>CSS 工程化</li>
+            <li>性能优化</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">项目展示</h2>
+            <div class="filters" role="group" aria-label="项目筛选">
+              <button class="chip is-active" data-filter="all">全部</button>
+              <button class="chip" data-filter="web">Web</button>
+              <button class="chip" data-filter="tool">工具</button>
+              <button class="chip" data-filter="other">其他</button>
+            </div>
+          </div>
+          <div id="project-grid" class="project-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <h2 class="section-title">联系方式</h2>
+          <div class="contact-grid">
+            <form id="contact-form" class="card" novalidate>
+              <div class="form-row">
+                <label for="name">姓名</label>
+                <input id="name" name="name" type="text" placeholder="你的名字" required />
+                <p class="field-hint" data-for="name"></p>
+              </div>
+              <div class="form-row">
+                <label for="email">邮箱</label>
+                <input id="email" name="email" type="email" placeholder="name@example.com" required />
+                <p class="field-hint" data-for="email"></p>
+              </div>
+              <div class="form-row">
+                <label for="message">留言</label>
+                <textarea id="message" name="message" rows="5" placeholder="我想合作/咨询……" required></textarea>
+                <p class="field-hint" data-for="message"></p>
+              </div>
+              <div class="form-actions">
+                <button class="btn primary" type="submit">发送</button>
+                <p id="form-status" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+
+            <ul class="card contact-list" aria-label="其他联系方式">
+              <li>
+                <a class="contact-item" href="mailto:hello@example.com">
+                  <span class="emoji" aria-hidden="true">✉️</span>
+                  <span>Email: hello@example.com</span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-item" href="https://github.com/yourname" target="_blank" rel="noreferrer noopener">
+                  <span class="emoji" aria-hidden="true">🐙</span>
+                  <span>GitHub: yourname</span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-item" href="https://www.linkedin.com/in/yourname/" target="_blank" rel="noreferrer noopener">
+                  <span class="emoji" aria-hidden="true">💼</span>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Colin Wang. 保留所有权利。</p>
+        <a href="#" class="back-to-top">返回顶部 ↑</a>
+      </div>
+    </footer>
+
+    <script src="./script.js" defer></script>
+  </body>
+  </html>
+
+
