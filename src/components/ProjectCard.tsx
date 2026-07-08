@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom'
 import type { Project } from '../types'
 import { statusLabels } from '../data/projects'
 
 interface ProjectCardProps {
   project: Project
+}
+
+function isInternalLink(href: string) {
+  return href.startsWith('/') && !href.startsWith('//')
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
@@ -26,16 +31,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {hasLinks && (
         <div className="project-links">
-          {project.links.demo && (
-            <a
-              className="project-link"
-              href={project.links.demo}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              预览 →
-            </a>
-          )}
+          {project.links.demo &&
+            (isInternalLink(project.links.demo) ? (
+              <Link className="project-link" to={project.links.demo}>
+                打开 →
+              </Link>
+            ) : (
+              <a
+                className="project-link"
+                href={project.links.demo}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                预览 →
+              </a>
+            ))}
           {project.links.repo && (
             <a
               className="project-link"

@@ -1,24 +1,21 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { About } from './components/About'
-import { Projects } from './components/Projects'
-import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
+import { HomePage } from './pages/HomePage'
+import { TaskPlannerPage } from './pages/TaskPlannerPage'
 
 export default function App() {
   return (
-    <>
+    <BrowserRouter>
       <a className="skip-link" href="#main">
         跳到主要内容
       </a>
       <Header />
-      <main id="main">
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/task-planner" element={<TaskPlannerPage />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }

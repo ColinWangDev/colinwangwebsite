@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { profile } from '../data/profile'
 import { useTheme } from '../hooks/useTheme'
 
-const navItems = [
+const homeNavItems = [
   { href: '#about', label: '关于' },
   { href: '#projects', label: '作品' },
   { href: '#contact', label: '联系' },
@@ -11,15 +12,17 @@ const navItems = [
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { cycleTheme, themeLabel } = useTheme()
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   const closeMenu = () => setMenuOpen(false)
 
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a className="brand" href="#" onClick={closeMenu}>
+        <Link className="brand" to="/" onClick={closeMenu}>
           {profile.initials}
-        </a>
+        </Link>
 
         <nav className="site-nav" aria-label="主导航">
           <button
@@ -35,13 +38,21 @@ export function Header() {
           </button>
 
           <ul id="nav-list" className={`nav-list${menuOpen ? ' open' : ''}`}>
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} onClick={closeMenu}>
-                  {item.label}
-                </a>
+            {isHome ? (
+              homeNavItems.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} onClick={closeMenu}>
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            ) : (
+              <li>
+                <Link to="/" onClick={closeMenu}>
+                  首页
+                </Link>
               </li>
-            ))}
+            )}
           </ul>
         </nav>
 

@@ -12,12 +12,12 @@ export const projects: Project[] = [
   },
   {
     id: 'p2',
-    title: 'CLI 效率工具集',
-    description: '改善日常开发流的命令行工具，包含文件批处理与 Git 辅助脚本。',
+    title: '每日任务规划器',
+    description: '根据今日可用工时，从待办池中自动挑选任务。数据保存在浏览器本地。',
     tags: ['tool'],
-    year: '2025',
+    year: '2026',
     status: 'wip',
-    links: { repo: '#' },
+    links: { demo: '/task-planner' },
   },
   {
     id: 'p3',

@@ -1,4 +1,5 @@
 import type { MouseEvent } from 'react'
+import { Link } from 'react-router-dom'
 import { profile } from '../data/profile'
 
 export function Footer() {
@@ -15,9 +16,9 @@ export function Footer() {
         <p>
           © {year} {profile.name}. 保留所有权利。
         </p>
-        <a href="#" className="back-to-top" onClick={scrollToTop}>
+        <Link to="/" className="back-to-top" onClick={scrollToTop}>
           返回顶部 ↑
-        </a>
+        </Link>
       </div>
     </footer>
   )
